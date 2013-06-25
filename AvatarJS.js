@@ -1,15 +1,11 @@
-/*
- * Copyright 2013 Rocky
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * @version 0.0.3
- *
- * Compatible with IE 6+, FF 3.6+, Safari 5+, Chrome
- */
+/*!
+* AvatarJS 0.0.3
+* Date: 2013-06-20
+* (c) 2012-2013 Rocky, http://rockydo.com
+*
+* This is licensed under the GNU LGPL, version 2.1 or later.
+* For details, see: http://creativecommons.org/licenses/LGPL/2.1/
+*/
 
 ;(function(window, undefined) {
     var $ = AJ = window.$ = window.AJ = function (selector, context) {
@@ -32,7 +28,7 @@
 
 
 AJ.fn = AJ.prototype = {
-    du: "1.0",
+    AJ: "1.0",
     /**
      * @property {DOMElement[]} els Selected elements
      */
@@ -951,9 +947,9 @@ AJ.fn.extend(
     }
 );
 
-/**
+/**********************
  * AJ CSS
- *
+ **********************
  */
 AJ.fn.extend(
     /**
@@ -1041,8 +1037,9 @@ AJ.extend(
 );
 
 
-/**
+/**********************
  * AJ Event
+ **********************
  */
 (function ($) {
 
@@ -1326,9 +1323,9 @@ $.each(['load', 'unload', 'scroll', 'resize', 'error', 'blur', 'change', 'focus'
 
 
 
-/**
+/**********************
  * AJ Ajax
- *
+ **********************
  */
 AJ.fn.extend(
     /**
@@ -1497,8 +1494,5 @@ AJ.extend(
         }
     }
 );
-
-
-
 
 })(window);
