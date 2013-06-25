@@ -1,11 +1,13 @@
 /*!
-* AvatarJS 0.0.3
-* Date: 2013-06-20
-* (c) 2012-2013 Rocky, http://rockydo.com
-*
-* This is licensed under the GNU LGPL, version 2.1 or later.
-* For details, see: http://creativecommons.org/licenses/LGPL/2.1/
-*/
+ * AvatarJS
+ * @version v0.0.3
+ * @author  Rocky(rockyuse@163.com)
+ * @date    2013-06-20
+ *
+ * (c) 2012-2013 Rocky, http://rockydo.com
+ * This is licensed under the GNU LGPL, version 2.1 or later.
+ * For details, see: http://creativecommons.org/licenses/LGPL/2.1/
+ */
 
 ;(function(window, undefined) {
     var $ = AJ = window.$ = window.AJ = function (selector, context) {
