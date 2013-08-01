@@ -5,7 +5,7 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript">
 ;!function (window, $, undefined) {
-  var Cla = (function () {
+	var Cla = (function () {
 		var a = 1;
 
 		function Cla(bindDom, options) {
@@ -24,12 +24,19 @@
 		};
 
 		Cla.prototype.render = function () {
-			console.log(this.$this.html())
+			console.log(this.$this.html());
+			return this; // return this 可以链式调用
 		};
 
 		Cla.prototype.getInfo = function () {
 			console.log(this.opts.width);
 			console.log(this.opts.height);
+			return this;
+		};
+
+		Cla.prototype.getInfo1 = function () {
+			console.log(1);
+			return this;
 		};
 
 		return Cla;
@@ -104,7 +111,7 @@ $(function () {
 		width: 300
 	});
 
-	_cla1.getInfo();
+	_cla1.getInfo().getInfo1();
 
 	var _cla2 = $('#B').Cla({
 		width: 400,
