@@ -24,18 +24,26 @@
 		};
 
 		Cla.prototype.render = function () {
-			console.log(this.$this.html());
 			return this; // return this 可以链式调用
 		};
 
 		Cla.prototype.getInfo = function () {
-			console.log(this.opts.width);
-			console.log(this.opts.height);
+			// console.log(this.$this.html());
+			
+			this.$this.click(function(){
+				console.log($(this).html());
+			})
+
 			return this;
 		};
 
-		Cla.prototype.getInfo1 = function () {
-			console.log(1);
+		Cla.prototype.setWidth = function (w) {
+			this.opts.width = w;
+			return this;
+		};
+
+		Cla.prototype.getWidth = function () {
+			console.log('width: ' + this.opts.width)
 			return this;
 		};
 
@@ -43,16 +51,20 @@
 	})();
 	// window.Cla = $.Cla = Cla;
 	$.fn.Cla = function (opts) {
-		var $this = $(this),
-			data = $this.data();
+		var _r = [];
+		this.each(function () {
+			var $this = $(this),
+				data = $this.data();
 
-		if (data.Cla) {
-			delete data.Cla;
-		}
-		if (opts !== false) {
-			data.Cla = new Cla($this, opts);
-		}
-		return data.Cla;
+			if (data.Cla) {
+				delete data.Cla;
+			}
+			if (opts !== false) {
+				data.Cla = new Cla($this, opts);
+			}
+			_r.push(data.Cla);
+		});
+		return _r;
 	};
 }(this, jQuery);
 
@@ -70,7 +82,6 @@
 			this.opts = $.extend({}, Clas.defaults, options || {}), _self = this;
 
 			console.log(_self.opts.id)
-
 		},
 
 		getInfo: function (newNum) {
@@ -107,18 +118,18 @@
 
 
 $(function () {
-	var _cla1 = $('#A').Cla({
+	var _cla1 = $('.a').Cla({
 		width: 300
 	});
 
-	_cla1.getInfo().getInfo1();
+	_cla1[2].getWidth().getInfo().setWidth(700).getWidth();
 
 	var _cla2 = $('#B').Cla({
 		width: 400,
 		height: 500
 	});
 
-	_cla2.getInfo();
+	_cla2[0].getInfo();
 
 	// case
 	var _clas1 = $('#A').Clas({
@@ -137,8 +148,14 @@ $(function () {
 </script>
 </head>
 <body>
+	<div class="a">11111</div>
+	<div class="a">22222</div>
+	<div class="a">33333</div>
+	<div class="a">44444</div>
+	<div class="a">55555</div>
+	<br/><br/><br/>
+
 	<div id="A">aaaa</div>
 	<div id="B">bbbb</div>
 </body>
-
 </html>
